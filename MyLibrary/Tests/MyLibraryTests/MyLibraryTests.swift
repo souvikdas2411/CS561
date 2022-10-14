@@ -2,6 +2,19 @@ import XCTest
 import MyLibrary
 
 final class MyLibraryTests: XCTestCase {
+    
+    func testingTheRealDealWeatherService() async {
+        
+        let myLibrary = MyLibrary(weatherService: nil)
+        
+        //When
+        let isLuckyNumber = await myLibrary.isLucky(0)
+        
+        //Then
+        XCTAssertNotNil(isLuckyNumber)
+        
+    }
+
     func testIsLuckyBecauseWeAlreadyHaveLuckyNumber() async {
         // Given
         let mockWeatherService = MockWeatherService(
