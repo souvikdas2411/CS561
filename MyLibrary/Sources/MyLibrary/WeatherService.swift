@@ -38,10 +38,6 @@ class WeatherServiceImpl: WeatherService {
                 case let .success(weather):
                     let temperature = weather.main.temp
                     let temperatureAsInteger = Int(temperature)
-                    
-                    //For code coverage
-                    _ = weather.authenticate()
-                    
                     continuation.resume(with: .success(temperatureAsInteger))
 
                 case let .failure(error):
@@ -52,18 +48,10 @@ class WeatherServiceImpl: WeatherService {
     }
 }
 
-private struct Weather: Decodable {
+public struct Weather: Decodable {
     let main: Main
 
     struct Main: Decodable {
         let temp: Double
     }
-    
-    //-------------
-    //Added
-    func authenticate() -> Bool {
-        //We only initialise Weather if we get temp back i.e. .success, so temp cannot be optional, temp will always have some value stored in it if initialised
-        return true
-    }
-    //-------------
 }
