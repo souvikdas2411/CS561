@@ -1,17 +1,22 @@
 import XCTest
-import MyLibrary
+@testable import MyLibrary
 
 final class MyLibraryTests: XCTestCase {
     
-    func testingTheRealDealWeatherService() async {
+    func testingModel() throws {
         
-        let myLibrary = MyLibrary(weatherService: nil)
+        let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
+        let jsonString = try String(contentsOfFile: filePath)
+        
+        let jsonData = Data(jsonString.utf8)
+        let jsonDecoder = JSONDecoder()
         
         //When
-        let isLuckyNumber = await myLibrary.isLucky(0)
+        let weather = try jsonDecoder.decode(Weather.self, from: jsonData)
         
         //Then
-        XCTAssertNotNil(isLuckyNumber)
+        XCTAssertNotNil(weather.main.temp)
+        
         
     }
 
