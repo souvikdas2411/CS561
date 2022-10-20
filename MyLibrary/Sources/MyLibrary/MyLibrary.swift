@@ -32,16 +32,37 @@ public class MyLibrary {
         return output.description
     }
     
-    public func generateHash() async {
-    
-        if UserDefaults.standard.object(forKey: "hashDict") == nil {
-            for a in alphabet {
+    public func generateHash() async -> Bool{
+//        if UserDefaults.standard.object(forKey: "hashDict") == nil {
+//            for a in alphabet {
+//                hashDict[encryptUsingSha1(from: a)] = a
+//                hashDict[encryptUsingSha1(from: a.uppercased())] = a.uppercased()
+//            }
+//            UserDefaults.standard.set(hashDict, forKey: "hashDict")
+//        }
+        
+        // Not  using -------------> if UserDefaults.standard.object(forKey: "hashDict") == nil <------------- because if the cached file gets damaged somehow the user should be able to generate a new hashDict
+        
+        for a in alphabet {
                 hashDict[encryptUsingSha1(from: a)] = a
                 hashDict[encryptUsingSha1(from: a.uppercased())] = a.uppercased()
-            }
-            UserDefaults.standard.set(hashDict, forKey: "hashDict")
         }
-    }    
+        UserDefaults.standard.set(hashDict, forKey: "hashDict")
+        
+        if UserDefaults.standard.object(forKey: "hashDict") != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    public func crackStation(digest: String) -> String? {
+        
+        let hashDict = UserDefaults.standard.object(forKey: "hashDict") as? [String:String]
+        return hashDict?["SHA1 digest: \(digest)"]
+        
+    }
 }
 
 private extension Int {
