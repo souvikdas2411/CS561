@@ -3,6 +3,12 @@ import XCTest
 
 final class MyLibraryTests: XCTestCase {
     
+    func testing() async {
+        let myLibrary = MyLibrary(weatherService: nil)
+        await myLibrary.generateHash()
+        print(UserDefaults.standard.object(forKey: "hashDict"))
+    }
+    
     func testingModel() throws {
         
         let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
