@@ -41,7 +41,9 @@ public class MyLibrary {
 //            UserDefaults.standard.set(hashDict, forKey: "hashDict")
 //        }
         
-        // Not  using -------------> if UserDefaults.standard.object(forKey: "hashDict") == nil <------------- because if the cached file gets damaged somehow the user should be able to generate a new hashDict
+        // Not  using
+        /// -------------> if UserDefaults.standard.object(forKey: "hashDict") == nil <-------------
+        // because if the cached file gets damaged somehow the user should be able to generate a new hashDict
         
         for a in alphabet {
                 hashDict[encryptUsingSha1(from: a)] = a
@@ -58,10 +60,11 @@ public class MyLibrary {
     }
     
     public func crackStation(digest: String) -> String? {
-        
-        let hashDict = UserDefaults.standard.object(forKey: "hashDict") as? [String:String]
-        return hashDict?["SHA1 digest: \(digest)"]
-        
+        if UserDefaults.standard.object(forKey: "hashDict") != nil {
+            let hashDict = UserDefaults.standard.object(forKey: "hashDict") as? [String:String]
+            return hashDict?["SHA1 digest: \(digest)"]
+        }
+        return nil
     }
 }
 
