@@ -63,6 +63,8 @@ public class MyLibrary {
         }
     }
     
+    /// Either returns the cracked plain-text password
+    /// or, if unable to crack, then returns nil.
     public func crackStation(digest: String) -> String? {
         if UserDefaults.standard.object(forKey: "hashDict") != nil {
             let hashDict = UserDefaults.standard.object(forKey: "hashDict") as? [String:String]
