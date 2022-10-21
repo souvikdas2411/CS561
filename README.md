@@ -1,4 +1,4 @@
-# CrackStation CS561 Week 5
+# CrackStation POC1 CS561 Week 5
 
 A vanilla Crackstation which can crack any single-character password, which matches the regular expression [A-Za-z0-9] and is encrypted using the SHA-1 cryptographic hash function. 
 
@@ -22,6 +22,15 @@ public func generateHash() async -> Bool
 The function below returns the plain-text password else the function returns nil.
 ```swift
 public func crackStation(digest: String) -> String?
+```
+
+If you are adding our package as a dependency look below.
+```swift
+import MyLibrary
+...
+MyLibrary.init(weatherService: nil).generateHash()
+...
+MyLibrary.init(weatherService: nil).crackStation(digest: "Your SHA digest")
 ```
 
 ## How to generate the SHA1 digest?
