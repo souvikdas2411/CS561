@@ -16,9 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Change directory
-      run: cd MyLibrary
-    - name: Build 
-      run: swift build -v
+    - name: mock
+      run: |
+        cd mock
+        cd mockserv
+        node serv.js
+    - name: Build
+      run: |
+        cd MyLibrary
+        swift build -v
     - name: Run tests
-      run: swift test -v
+      run: |
+        cd MyLibrary
+        swift test -v
