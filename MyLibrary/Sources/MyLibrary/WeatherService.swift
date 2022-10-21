@@ -25,7 +25,7 @@ class WeatherServiceImpl: WeatherService {
             url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=d280dbb26a76e8d890331a2c3977a78f"
         }
         else {
-            url = "localhost:3000/data/2.5/weather?q=corvallis&units=imperial&appid=123"
+            url = "http://localhost:3002/data/2.5/weather"
         }
     }
     //-------------
