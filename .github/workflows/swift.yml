@@ -22,12 +22,11 @@ jobs:
         cd MyLibrary
         swift build -v
         
-    - name: mock
+    - name: Mock
       run: |
         cd mock
         cd mockserv
         node server.js
-        run: |
         
     - name: Run tests
       needs: mock
