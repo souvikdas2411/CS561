@@ -3,6 +3,10 @@ import XCTest
 
 final class MyLibraryTests: XCTestCase {
     
+    func testPR() {
+        print("Success")
+    }
+    
     func testingModel() throws {
         
         let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
