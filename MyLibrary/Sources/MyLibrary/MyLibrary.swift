@@ -4,6 +4,7 @@ import CryptoKit
 public class MyLibrary {
     
     private let alphabet: [String] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    private let numbers: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     private var hashDict:[String:String]
     
@@ -48,6 +49,9 @@ public class MyLibrary {
         for a in alphabet {
                 hashDict[encryptUsingSha1(from: a)] = a
                 hashDict[encryptUsingSha1(from: a.uppercased())] = a.uppercased()
+        }
+        for n in numbers {
+                hashDict[encryptUsingSha1(from: n)] = n
         }
         UserDefaults.standard.set(hashDict, forKey: "hashDict")
         
