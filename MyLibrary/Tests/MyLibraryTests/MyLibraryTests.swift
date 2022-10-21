@@ -3,17 +3,6 @@ import XCTest
 
 final class MyLibraryTests: XCTestCase {
     
-    func testCrackStation() {
-        //Given
-        let myLibrary = MyLibrary(weatherService: nil)
-        
-        //When
-        let result = myLibrary.crackStation(digest: "e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98")
-
-        //Then
-        XCTAssertEqual(result, "b")
-    }
-    
     func testingModel() throws {
         
         let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
