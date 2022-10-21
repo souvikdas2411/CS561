@@ -20,7 +20,7 @@ jobs:
       run: |
         cd mock
         cd mockserv
-        node serv.js
+        node server.js
     - name: Build
       run: |
         cd MyLibrary
