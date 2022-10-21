@@ -1,6 +1,6 @@
 # CrackStation CS561 Week 5
 
-A vanilla Crackstation which can crack any single-character password, which (a) matches the regular expression [A-Za-z0-9] and (b) is encrypted using the SHA-1 cryptographic hash function. 
+A vanilla Crackstation which can crack any single-character password, which matches the regular expression [A-Za-z0-9] and is encrypted using the SHA-1 cryptographic hash function. 
 
 ## Sample test data
 
@@ -19,7 +19,7 @@ The function below sets up the CrackStation dictionary. It returns true if a dic
 public func generateHash() async -> Bool
 ```
 
-The function below returns the plain-text password. If a a matching key is not found the function returns nil.
+The function below returns the plain-text password else the function returns nil.
 ```swift
 public func crackStation(digest: String) -> String?
 ```
