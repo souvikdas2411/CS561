@@ -13,12 +13,6 @@ crackStation(digest: "Your SHA1 Digest")
 | 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8       | a       											|
 | 902ba3cda1883801594b6e1b452790cc53948fda       | 7       											|
 
-## How to generate the SHA1 digest?
-
-```bash
-echo -n "your string" | sha1sum
-```
-
 ## How to use our CrackStation?
 The function below sets up the CrackStation dictionary. It returns true if a dictionary is successfully generated and vice versa.
 ```swift
@@ -28,4 +22,10 @@ public func generateHash() async -> Bool
 The function below returns the plain-text password. If a a matching key is not found the function returns nil.
 ```swift
 public func crackStation(digest: String) -> String?
+```
+
+## How to generate the SHA1 digest?
+
+```bash
+echo -n "your string" | sha1sum
 ```
