@@ -29,7 +29,6 @@ jobs:
         node server.js
         
     - name: Run tests
-      needs: mock
       run: |
         cd MyLibrary
         swift test -v
