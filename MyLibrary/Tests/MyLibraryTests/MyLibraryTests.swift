@@ -2,20 +2,7 @@ import XCTest
 @testable import MyLibrary
 
 final class MyLibraryTests: XCTestCase {
-    
-    func testPR() async {
-        // Given
-        let weatherService = WeatherServiceImpl(baseUrl: .mock)
-
-        let myLibrary = MyLibrary(weatherService: weatherService)
-
-        // When
-        let isLuckyNumber = await myLibrary.isLucky(0)
-
-        // Then
-        XCTAssertNotNil(isLuckyNumber)
-    }
-    
+        
     func testingModel() throws {
         
         let filePath = try XCTUnwrap(Bundle.module.path(forResource: "data", ofType: "json"))
