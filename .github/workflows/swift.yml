@@ -22,12 +22,6 @@ jobs:
         cd MyLibrary
         swift build -v
         
-    - name: Mock
-      run: |
-        cd mock
-        cd mockserv
-        node server.js
-        
     - name: Run tests
       run: |
         cd MyLibrary
